@@ -40,12 +40,9 @@ def show_all_grades(first_name, last_name):
                 ON github = student_github
                 WHERE first_name = ? AND last_name = ?"""
     DB.execute(query, (first_name, last_name))
-    row = DB.fetchone()
-    print """\
-Student Name: %s %s
-Project: %s
-Grade: %d""" % (first_name, last_name, row[0], row[1])
-
+    row = DB.fetchall()
+    print row
+    return row
 
 def make_new_project(title, description, max_grade):
     query = """INSERT INTO Projects (title, description, max_grade) Values (?, ?, ?)"""
@@ -76,6 +73,7 @@ def main():
     while command != "quit":
         input_string = raw_input("HBA Database> ")
         tokens = input_string.split(None, 1)
+        print tokens
         command = tokens[0]
         arguments = tokens[1]
         arguments1 = arguments.split(",")
