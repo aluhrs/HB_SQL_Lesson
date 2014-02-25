@@ -7,6 +7,8 @@ def get_student_by_github(github):
     query = """SELECT first_name, last_name, github FROM Students WHERE github = ?"""
     DB.execute(query, (github,))
     row = DB.fetchone()
+
+    return { 'firstname': row[0], 'lastname': row[1], 'github': row[2] }
     return row
 
 def get_project_by_title(title):
@@ -19,14 +21,12 @@ Description: %s
 Grade: %s""" % (row[1], row[2], row[3]) 
 
 def get_grade_by_project(project):
-    query = """SELECT first_name, last_name, grade FROM Grades JOIN Students 
+    query = """SELECT first_name, last_name, grade, github FROM Grades JOIN Students 
                 ON github = student_github WHERE project_title = ?"""
     DB.execute(query, (project,))
-    row = DB.fetchone()
-    print """\
-Student Name: %s %s
-Project: %s
-Grade: %d""" % (row[0], row[1], project, row[2])
+    row = DB.fetchall()
+    print row
+    return row
 
 def show_all_grades(first_name, last_name):
     #github_query = """SELECT github From Students
