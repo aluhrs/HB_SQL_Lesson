@@ -11,10 +11,13 @@
             {% for t in grades %}
             <tr>
                 <td>{{t[0]}} {{t[1]}}</td>
-                <td><a href="http://localhost:5000/student?github={{t[3]}}">{{t[3]}}</td>
+                <td><a href="/student?github={{t[3]}}">{{t[3]}}</td>
                 <td>{{t[2]}}</td>
             </tr>
             {% endfor %}    
         </table>
+        <p>
+            <a href="/">Home Link</a>
+        </p>
     </body>
 </html>

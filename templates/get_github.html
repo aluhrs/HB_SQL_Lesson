@@ -1,9 +1,65 @@
 <html>
     <body>
+    	<h1>
+    		Get a Student's Projects and Grades
+    	</h1>
+    	<h3>
+    		Enter a student's github account to get a list of all of the projects and grades
+    		for each student.
+    	</h3>
         <form action="/student">
-        <label for="github">Enter github id</label>
+        <label for="github">Github ID:</label>
         <input type="text" name="github" />
         <input type="submit">
         </form>
+
+        <h1>
+        	Create a New Student Record
+        </h1>
+        <h3>
+        	Enter a student's first name, last name, and github account to add a student record.
+        </h3>
+        <form action="/studentrecord">
+        <label for="first_name">First Name:</lable>
+        <input type="text" name="first_name" />
+        <label for="last_name">Last Name:</lable>
+        <input type="text" name="last_name" />
+        <label for="github">Github ID:</lable>
+        <input type="text" name="github" />
+        <input type="submit">
+    	</form>
+
+    	<h1>
+        	Create a new Project Record
+        </h1>
+        <h3>
+        	Enter a project's title, description, and max grade to create a new project record.
+        </h3>
+        <form action="/projectrecord">
+        <label for="title">Title:</lable>
+        <input type="text" name="title" />
+        <label for="description">Description:</lable>
+        <input type="text" name="description" />
+        <label for="max_grade">Max Grade:</lable>
+        <input type="text" name="max_grade" />
+        <input type="submit">
+    	</form>
+
+        <h1>
+            Add a Grade for a Project
+        </h1>
+        <h3>
+            Enter a Student's Github, the Project's Title, and the Student's Grade.
+        </h3>
+        <form action="/new_grade">
+        <label for="student_github">Github ID:</lable>
+        <input type="text" name="student_github" />
+        <label for="project_title">Project Title:</lable>
+        <input type="text" name="project_title" />
+        <label for="grade">Project Grade:</lable>
+        <input type="text" name="grade" />
+        <input type="submit">
+        </form>
+
     </body>
 </html>
